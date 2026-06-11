@@ -1,0 +1,10 @@
+2026-06-11T15:05:40+0000 INFO  [health] GET /health -> 200
+2026-06-11T15:05:42+0000 WARN  [cache] response cache at 1.9M entries (no eviction policy hit)
+2026-06-11T15:05:42+0000 ERROR [runtime] MEMORY_SPIKE: heap 97%, allocation failures in request handlers
+2026-06-11T15:05:42+0000 FATAL [api] worker unresponsive >10s, returning HTTP 500
+2026-06-11T15:05:42+0000 FATAL [system] MEMORY_SPIKE — service DOWN
+2026-06-11T15:05:44+0000 ERROR [health] GET /health -> 500 (MEMORY_SPIKE)
+2026-06-11T15:05:46+0000 ERROR [api] GET / -> 500 (MEMORY_SPIKE)
+2026-06-11T15:05:49+0000 INFO  [recovery] executing 'clear_cache' ...
+2026-06-11T15:05:49+0000 INFO  [recovery] 'clear_cache' succeeded — service RESTORED
+2026-06-11T15:05:50+0000 INFO  [health] GET /health -> 200
