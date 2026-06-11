@@ -8,3 +8,7 @@ env/
 .vscode/
 .idea/
 *.log
+logs/
+!docs/log_samples/*.log
+.pytest_cache/
+*.egg-info/

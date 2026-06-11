@@ -1,0 +1,12 @@
+2026-06-11T14:31:58+0000 INFO  [health] GET /health -> 200
+2026-06-11T14:32:00+0000 INFO  [api] GET /api/orders -> 200 (3 orders)
+2026-06-11T14:32:02+0000 ERROR [db-pool] connection 14/15/16 timed out after 30000ms
+2026-06-11T14:32:02+0000 ERROR [db-pool] deadlock detected: transaction 0x7f3a holds lock on 'orders'
+2026-06-11T14:32:02+0000 FATAL [api] DB_CRASH: all upstream queries failing, returning HTTP 500
+2026-06-11T14:32:02+0000 FATAL [system] DB_CRASH — service DOWN
+2026-06-11T14:32:04+0000 ERROR [health] GET /health -> 500 (DB_CRASH)
+2026-06-11T14:32:06+0000 ERROR [api] GET /api/orders -> 500 (DB_CRASH)
+2026-06-11T14:32:08+0000 ERROR [health] GET /health -> 500 (DB_CRASH)
+2026-06-11T14:32:11+0000 INFO  [recovery] executing 'restart_db' ...
+2026-06-11T14:32:11+0000 INFO  [recovery] 'restart_db' succeeded — service RESTORED
+2026-06-11T14:32:12+0000 INFO  [health] GET /health -> 200
