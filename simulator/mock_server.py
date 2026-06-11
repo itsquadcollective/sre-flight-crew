@@ -50,6 +50,16 @@ FAILURES = {
         ],
         "recovery_action": "clear_cache",
     },
+    "service_crash": {
+        "error_type": "SERVICE_CRASH",
+        "message": "FATAL: application worker process died unexpectedly",
+        "detail_logs": [
+            "FATAL [api] worker process 9921 exited with code 1",
+            "ERROR [runtime] worker unresponsive: ping timeout > 10000ms",
+            "FATAL [system] SERVICE_CRASH — application server DOWN",
+        ],
+        "recovery_action": "restart_service",
+    },
 }
 
 VALID_RECOVERY = {f["recovery_action"]: name for name, f in FAILURES.items()}

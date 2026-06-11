@@ -67,3 +67,4 @@ pytest tests/ -v
 - `dev` is the integration branch — branch off it: `feature/<your-area>`
 - PR into `dev`; keep `main` demo-ready
 - Never commit `.env` (gitignored) — secrets stay local
+YYY
