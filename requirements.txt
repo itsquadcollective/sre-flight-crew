@@ -1,6 +1,18 @@
-﻿azure-ai-projects>=1.0.0
-azure-identity>=1.15.0
-azure-ai-inference>=1.0.0
-flask>=3.0.0
+# --- Core runtime ---
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+pydantic>=2.6.0
 python-dotenv>=1.0.0
 requests>=2.31.0
+
+# --- Azure AI Foundry (agent developers) ---
+azure-ai-projects>=1.0.0
+azure-identity>=1.15.0
+azure-ai-inference>=1.0.0b9
+
+# --- Dashboard (frontend dev: served by FastAPI too) ---
+jinja2>=3.1.3
+
+# --- Dev / test ---
+pytest>=8.0.0
+httpx>=0.27.0
