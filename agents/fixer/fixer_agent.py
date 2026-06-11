@@ -7,7 +7,7 @@ import requests
 from datetime import datetime, timezone
 from shared.schemas import DiagnosisResult, FixResult
 
-HEALTH_URL = "http://localhost:8080/health"
+HEALTH_URL = os.getenv("HEALTH_CHECK_URL", "http://localhost:8090/health")
 
 def find_bash() -> str:
     """Locate bash.exe — works whether or not Git Bash is on PATH."""
