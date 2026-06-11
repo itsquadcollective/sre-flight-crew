@@ -14,7 +14,7 @@ import requests
 
 from shared.config import MOCK_SERVER_URL
 
-FAILURES = ["db_crash", "memory_spike"]
+FAILURES = ["db_crash", "memory_spike", "service_crash"]
 
 
 def inject(failure: str) -> int:

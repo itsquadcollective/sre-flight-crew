@@ -1,0 +1,92 @@
+{
+  "incidents": [
+    {
+      "event_id": "evt_20260610_031422_001",
+      "timestamp": "2026-06-10T03:14:22Z",
+      "error_type": "DB_CRASH",
+      "root_cause": "database_lock",
+      "recovery_action": "restart_db",
+      "confidence": 0.94,
+      "resolution_time_ms": 12400,
+      "success": true
+    },
+    {
+      "event_id": "evt_20260610_141530_002",
+      "timestamp": "2026-06-10T14:15:30Z",
+      "error_type": "MEMORY_SPIKE",
+      "root_cause": "memory_overflow",
+      "recovery_action": "clear_cache",
+      "confidence": 0.91,
+      "resolution_time_ms": 8700,
+      "success": true
+    },
+    {
+      "event_id": "evt_20260611_135550_001",
+      "timestamp": "2026-06-11T13:55:50.009579+00:00",
+      "error_type": "DB_CRASH",
+      "root_cause": "service_crash",
+      "recovery_action": "escalate_to_human",
+      "confidence": 0.0,
+      "resolution_time_ms": 0,
+      "success": false,
+      "reasoning_summary": "[DIAGNOSER FALLBACK] The Foundry Agent failed with error: Error code: 400 - {'error': {'message': 'An error occurred invoking \\'knowledge_base_retrieve\\': An error occurred invoking \\'knowledge_base_retrieve\\': BadRequest Message-{\"Message\":\"\\\\u0027Medium\\\\u0027 reasoning effort is not supported in this region\",\"DataPlaneErrorCode\":2,\"DataPlaneErrorDetail\":[{\"Code\":161,\"DelayedMessage\":{\"WasTruncated\":false}}]} RequestId: c7e7f983-f488-487d-b764-5cb786bb7dc6', 'type': 'invalid_request_error', 'p"
+    },
+    {
+      "event_id": "evt_20260611_140628_002",
+      "timestamp": "2026-06-11T14:06:28.991434+00:00",
+      "error_type": "MEMORY_SPIKE",
+      "root_cause": "service_crash",
+      "recovery_action": "escalate_to_human",
+      "confidence": 0.0,
+      "resolution_time_ms": 0,
+      "success": false,
+      "reasoning_summary": "[DIAGNOSER FALLBACK] The Foundry Agent failed with error: Error code: 400 - {'error': {'message': 'An error occurred invoking \\'knowledge_base_retrieve\\': An error occurred invoking \\'knowledge_base_retrieve\\': BadRequest Message-{\"Message\":\"\\\\u0027Medium\\\\u0027 reasoning effort is not supported in this region\",\"DataPlaneErrorCode\":2,\"DataPlaneErrorDetail\":[{\"Code\":161,\"DelayedMessage\":{\"WasTruncated\":false}}]} RequestId: ced96635-3955-4439-b495-0ee82a054c96', 'type': 'invalid_request_error', 'p"
+    },
+    {
+      "event_id": "evt_20260611_141223_001",
+      "timestamp": "2026-06-11T14:12:23.003001+00:00",
+      "error_type": "DB_CRASH",
+      "root_cause": "database_lock",
+      "recovery_action": "restart_db",
+      "confidence": 0.97,
+      "resolution_time_ms": 841,
+      "success": true,
+      "reasoning_summary": "Step 1: I examined the log context and found the primary error signature at 2026-06-11T15:12:22+0100: 'FATAL [system] DB_CRASH \ufffd service DOWN'. This matches the error_type 'DB_CRASH' that triggered the alert.\nStep 2: Looking at the surrounding lines, I see repeated errors from the database pool: 'ERROR [db-pool] connection 14/15/16 timed out after 30000ms' and 'ERROR [db-pool] deadlock detected: transaction 0x7f3a holds lock on 'orders''. These precede the fatal DB_CRASH, indicating a causal cha"
+    },
+    {
+      "event_id": "evt_20260611_141305_002",
+      "timestamp": "2026-06-11T14:13:05.600104+00:00",
+      "error_type": "MEMORY_SPIKE",
+      "root_cause": "memory_overflow",
+      "recovery_action": "clear_cache",
+      "confidence": 0.97,
+      "resolution_time_ms": 915,
+      "success": true,
+      "reasoning_summary": "Step 1: I examined the log context and found the primary error signature at 2026-06-11T15:13:05+0100: 'FATAL [system] MEMORY_SPIKE \ufffd service DOWN'. This matches the error_type 'MEMORY_SPIKE' that triggered the alert at 2026-06-11T14:13:05.600104+00:00.\nStep 2: Looking at the surrounding lines, I see preceding WARN and ERROR signals: 'WARN  [cache] response cache at 1.9M entries (no eviction policy hit)' and 'ERROR [runtime] MEMORY_SPIKE: heap 97%, allocation failures in request handlers'. This s"
+    },
+    {
+      "event_id": "evt_20260611_141628_003",
+      "timestamp": "2026-06-11T14:16:28.783409+00:00",
+      "error_type": "MEMORY_SPIKE",
+      "root_cause": "memory_overflow",
+      "recovery_action": "clear_cache",
+      "confidence": 0.97,
+      "resolution_time_ms": 979,
+      "success": true,
+      "reasoning_summary": "Step 1: I examined the log context and found the primary error signature at 2026-06-11T15:16:27+0100: 'FATAL [system] MEMORY_SPIKE \ufffd service DOWN'. This matches the error_type 'MEMORY_SPIKE' that triggered the alert at 2026-06-11T14:16:28.783409+00:00.\nStep 2: Looking at the surrounding lines, I see clear preceding signals: 'WARN  [cache] response cache at 1.9M entries (no eviction policy hit)', 'ERROR [runtime] MEMORY_SPIKE: heap 97%, allocation failures in request handlers', and 'FATAL [api] w"
+    },
+    {
+      "event_id": "evt_20260611_141757_001",
+      "timestamp": "2026-06-11T14:17:57.732695+00:00",
+      "error_type": "SERVICE_CRASH",
+      "root_cause": "service_crash",
+      "recovery_action": "restart_service",
+      "confidence": 0.95,
+      "resolution_time_ms": 842,
+      "success": true,
+      "reasoning_summary": "Step 1: I examined the log context and found the primary error signature at 2026-06-11T15:17:56+0100: 'FATAL [system] SERVICE_CRASH \ufffd service DOWN'. This matches the error_type 'SERVICE_CRASH' that triggered the alert.\nStep 2: Looking at the surrounding lines, I see 'FATAL [api] worker process 9921 exited with code 1' and 'ERROR [runtime] worker unresponsive: ping timeout > 10000ms' immediately before the service crash. This sequence indicates that the application worker became unresponsive (lik"
+    }
+  ],
+  "total_resolved": 6,
+  "last_updated": "2026-06-11T14:18:12.717113+00:00"
+}

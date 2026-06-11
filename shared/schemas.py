@@ -35,7 +35,7 @@ class DiagnosisResult:
     event_id: str
     root_cause: str
     confidence: float
-    recovery_action: Literal["restart_db", "clear_cache", "restart_service", "scale_memory"]
+    recovery_action: Literal["restart_db", "clear_cache", "restart_service", "scale_memory", "escalate_to_human"]
     script_path: str
     safety_confirmed: bool
     runbook_reference: str
