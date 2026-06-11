@@ -119,7 +119,8 @@ info "Checking current login status..."
 if az account show &> /dev/null; then
     CURRENT_USER=$(az account show --query "user.name" -o tsv)
     success "Already logged in as: ${CURRENT_USER}"
-    read -p "Would you like to log in with a different account? (y/n): " re_login
+    read -p "Would you like to log in with a different account? [Y/n]: " re_login
+    re_login=${re_login:-"y"}
     if [[ $re_login =~ ^[Yy]$ ]]; then
         info "Opening browser for interactive login..."
         az login
