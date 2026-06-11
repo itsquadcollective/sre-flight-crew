@@ -16,6 +16,8 @@
 
 import json
 import logging
+import os
+import platform
 import re
 import time
 from pathlib import Path
@@ -95,6 +97,12 @@ class Diagnoser:
         """
         logger.info("[DIAGNOSER] Initializing Foundry → OpenAI client...")
 
+        # ─── Ensure Azure CLI is in PATH (Windows support) ──────────────────
+        if platform.system() == "Windows":
+            cli_path = r"C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin"
+            if cli_path not in os.environ.get("PATH", ""):
+                os.environ["PATH"] = cli_path + os.pathsep + os.environ.get("PATH", "")
+
         if not AZURE_PROJECT_ENDPOINT:
             raise ValueError(
                 "AZURE_PROJECT_ENDPOINT not set in .env — "
@@ -163,6 +171,12 @@ class Diagnoser:
         start_time = time.time()
 
         try:
+            # ─── Ensure Azure CLI is in PATH (Windows support) ──────────────────
+            if platform.system() == "Windows":
+                cli_path = r"C:\Program Files\Microsoft SDKs\Azure\CLI2\wbin"
+                if cli_path not in os.environ.get("PATH", ""):
+                    os.environ["PATH"] = cli_path + os.pathsep + os.environ.get("PATH", "")
+
             # Step 1: Build the incident message
             pattern_history = self._load_pattern_history()
             user_message = build_incident_message(
