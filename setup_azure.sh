@@ -84,7 +84,8 @@ if ! command -v az &> /dev/null; then
     echo -e "  ${BOLD}Linux (Debian/Ubuntu):${NC}"
     echo -e "    curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash"
     echo ""
-    read -p "Would you like this script to attempt installing Azure CLI via winget/brew? (y/n): " install_cli
+    read -p "Would you like this script to attempt installing Azure CLI via winget/brew? [Y/n]: " install_cli
+    install_cli=${install_cli:-"y"}
     if [[ $install_cli =~ ^[Yy]$ ]]; then
         if [[ "$OSTYPE" == "msys" || "$OSTYPE" == "win32" ]]; then
             info "Installing Azure CLI via winget..."
