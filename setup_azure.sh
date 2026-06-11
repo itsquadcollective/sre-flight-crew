@@ -147,8 +147,8 @@ else
     info "No subscription entered. Using current default: $(az account show --query "name" -o tsv)"
 fi
 
-# Retrieve subscription ID for .env
-SUB_ID=$(az account show --query "id" -o tsv)
+# Retrieve subscription ID for .env (and strip potential carriage returns from Windows CLI)
+SUB_ID=$(az account show --query "id" -o tsv | tr -d '\r')
 
 # ─── STEP 4: Configure Local environment (.env) ───────────────────────────────
 header "Step 4: Local Configuration (.env)"
@@ -166,6 +166,18 @@ read -p "Resource Group Name: " RESOURCE_GROUP
 read -p "Model Deployment Name (Default: gpt-4.1): " MODEL_NAME
 MODEL_NAME=${MODEL_NAME:-"gpt-4.1"}
 read -p "Diagnoser Agent ID (from Azure AI Foundry Portal): " AGENT_ID
+read -p "Diagnoser Agent Name (Default: DIAGNOSER): " AGENT_NAME
+AGENT_NAME=${AGENT_NAME:-"DIAGNOSER"}
+read -p "Diagnoser Agent Version (Default: 11): " AGENT_VERSION
+AGENT_VERSION=${AGENT_VERSION:-"11"}
+
+# Strip potential carriage returns (\r) from user inputs on Windows
+PROJECT_ENDPOINT=$(echo "$PROJECT_ENDPOINT" | tr -d '\r')
+RESOURCE_GROUP=$(echo "$RESOURCE_GROUP" | tr -d '\r')
+MODEL_NAME=$(echo "$MODEL_NAME" | tr -d '\r')
+AGENT_ID=$(echo "$AGENT_ID" | tr -d '\r')
+AGENT_NAME=$(echo "$AGENT_NAME" | tr -d '\r')
+AGENT_VERSION=$(echo "$AGENT_VERSION" | tr -d '\r')
 
 # Use inline Python script to update .env cleanly on all operating systems
 info "Updating .env file variables..."
@@ -177,7 +189,9 @@ updates = {
     'AZURE_SUBSCRIPTION_ID': '$SUB_ID',
     'AZURE_RESOURCE_GROUP': '$RESOURCE_GROUP',
     'MODEL_DEPLOYMENT_NAME': '$MODEL_NAME',
-    'DIAGNOSER_AGENT_ID': '$AGENT_ID'
+    'DIAGNOSER_AGENT_ID': '$AGENT_ID',
+    'DIAGNOSER_AGENT_NAME': '$AGENT_NAME',
+    'DIAGNOSER_AGENT_VERSION': '$AGENT_VERSION'
 }
 
 lines = []
