@@ -234,7 +234,8 @@ success ".env file updated with your Azure settings."
 # ─── STEP 5: Python Environment Setup ─────────────────────────────────────────
 header "Step 5: Python Virtual Environment"
 
-read -p "Would you like to initialize/update the virtual environment (.venv)? (y/n): " SETUP_VENV
+read -p "Would you like to initialize/update the virtual environment (.venv)? [Y/n]: " SETUP_VENV
+SETUP_VENV=${SETUP_VENV:-"y"}
 if [[ $SETUP_VENV =~ ^[Yy]$ ]]; then
     if [ ! -d ".venv" ]; then
         info "Creating virtual environment (.venv)..."
@@ -257,7 +258,8 @@ fi
 # ─── STEP 6: Run Azure AI Connection Check ────────────────────────────────────
 header "Step 6: Azure AI Connection Verification"
 
-read -p "Would you like to run a connection sanity check to verify your RBAC access? (y/n): " RUN_CHECK
+read -p "Would you like to run a connection sanity check to verify your RBAC access? [Y/n]: " RUN_CHECK
+RUN_CHECK=${RUN_CHECK:-"y"}
 if [[ $RUN_CHECK =~ ^[Yy]$ ]]; then
     info "Running verification script..."
     
