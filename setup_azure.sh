@@ -160,15 +160,23 @@ if [ ! -f "$ENV_FILE" ]; then
 fi
 
 # Prompt user for project specifics
-echo -e "${YELLOW}Please enter the Azure AI Foundry resources details provided by your Project Lead:${NC}"
-read -p "Azure AI Project Endpoint (e.g. https://your-project.api.azureml.ms): " PROJECT_ENDPOINT
-read -p "Resource Group Name: " RESOURCE_GROUP
-read -p "Model Deployment Name (Default: gpt-4.1): " MODEL_NAME
+echo -e "${YELLOW}Please enter the Azure AI Foundry resources details provided by your Project Lead (or press Enter to use team defaults):${NC}"
+read -p "Azure AI Project Endpoint [Default: https://unlockedhackathonteam-resource.services.ai.azure.com/api/projects/unlockedhackathonteam]: " PROJECT_ENDPOINT
+PROJECT_ENDPOINT=${PROJECT_ENDPOINT:-"https://unlockedhackathonteam-resource.services.ai.azure.com/api/projects/unlockedhackathonteam"}
+
+read -p "Resource Group Name [Default: rg-ochuko]: " RESOURCE_GROUP
+RESOURCE_GROUP=${RESOURCE_GROUP:-"rg-ochuko"}
+
+read -p "Model Deployment Name [Default: gpt-4.1]: " MODEL_NAME
 MODEL_NAME=${MODEL_NAME:-"gpt-4.1"}
-read -p "Diagnoser Agent ID (from Azure AI Foundry Portal): " AGENT_ID
-read -p "Diagnoser Agent Name (Default: DIAGNOSER): " AGENT_NAME
+
+read -p "Diagnoser Agent ID (optional) [Default: none]: " AGENT_ID
+AGENT_ID=${AGENT_ID:-"none"}
+
+read -p "Diagnoser Agent Name [Default: DIAGNOSER]: " AGENT_NAME
 AGENT_NAME=${AGENT_NAME:-"DIAGNOSER"}
-read -p "Diagnoser Agent Version (Default: 11): " AGENT_VERSION
+
+read -p "Diagnoser Agent Version [Default: 11]: " AGENT_VERSION
 AGENT_VERSION=${AGENT_VERSION:-"11"}
 
 # Strip potential carriage returns (\r) from user inputs on Windows
