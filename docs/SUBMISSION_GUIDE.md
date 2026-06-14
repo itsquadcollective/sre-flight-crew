@@ -74,7 +74,7 @@ self-healing-sre/
 │   ├── ✅ app.js
 │   └── ✅ styles.css
 ├── ✅ eval/
-│   └── ✅ run_eval.py                (10-scenario eval harness)
+│   └── ✅ run_eval.py            
 └── ✅ docs/
     ├── ✅ SAD.md
     ├── ✅ PDR.md
