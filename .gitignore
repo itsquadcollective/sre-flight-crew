@@ -17,3 +17,9 @@ logs/
 SUBMISSION_CHECKLIST.md
 HACKATHON_AUDIT.md
 docs/SUBMISSION_GUIDE.md
+
+# Legacy setup scripts (consolidated into docs/SETUP.md)
+setup_azure.sh
+setup_azure.ps1
+setup_azure.bat
+setup_and_test.sh
