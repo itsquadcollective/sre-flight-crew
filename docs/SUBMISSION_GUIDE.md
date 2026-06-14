@@ -58,8 +58,9 @@ self-healing-sre/
 ├── ✅ target_server/
 │   ├── ✅ server.py                  (FastAPI with crash endpoints)
 │   └── ✅ log_simulator.py           (generates fake logs)
-├── ✅ knowledge_base/
-│   └── ✅ runbook.md                 (10+ scenarios)
+├── ✅ agents/diagnoser/knowledge_base
+│   └── ✅ runbook_db_crash.md
+        ✅ runbook_memory_spike.md  
 ├── ✅ scripts/
 │   ├── ✅ restart_service.sh
 │   ├── ✅ clear_db_lock.sh
@@ -152,7 +153,7 @@ This is what judges will look for first.
     Step 4: Recommended action: restart_postgres. Confidence: 94%.",
   "root_cause": "database_lock",
   "confidence": 0.94,
-  "recommended_action": "restart_postgres"
+  "recovery_action": "restart_db"
 }
 ```
 
