@@ -23,3 +23,8 @@ setup_azure.sh
 setup_azure.ps1
 setup_azure.bat
 setup_and_test.sh
+
+# Azurite local storage emulator (auto-generated)
+__azurite_db_queue__.json
+__azurite_db_queue_extent__.json
+__queuestorage__/
