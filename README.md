@@ -13,6 +13,11 @@ This project is a **Proof of Concept (PoC)** demonstrating high-fidelity autonom
 
 ---
 
+## Watch the Demo
+📺 **Demo Video:** https://youtu.be/l7LSPWG9gWw?si=IkypKNOQ0gYOq0N3
+
+---
+
 ## The Problem
 
 Server downtime is expensive and constant. A single outage costs businesses **$5,600 per minute** in lost revenue. Today's incident response is entirely manual: an on-call engineer wakes at 3 AM, SSH's into the server, manually reads messy log files, cross-references documentation, and executes recovery scripts. This process takes **15–45 minutes** on average. For startups and small teams without 24/7 on-call coverage, sites stay down for hours.
