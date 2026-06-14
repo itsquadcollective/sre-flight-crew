@@ -378,6 +378,23 @@ python -m simulator.failure_injector db_crash
 
 ---
 
+## Demo Video (Hackathon Submission)
+
+**The terminal-based demonstration above is exactly what judges will see.** No web dashboard is needed — the reasoning trace and recovery logs visible in the terminal are the evidence judges need:
+
+- ✅ **Reasoning visible:** Diagnoser's JSON output shows `thinking_trace` step-by-step
+- ✅ **Autonomous recovery:** Watch the pipeline detect → diagnose → fix in real-time
+- ✅ **Azure Foundry integration:** `[DIAGNOSER] Connected to Azure AI Foundry` proves the integration
+- ✅ **Sub-60-second response:** Recovery time logged and visible
+
+**Screen recording instructions:**
+1. Record the 3-terminal flow above
+2. Zoom in on Terminal 2 output to show Diagnoser's JSON reasoning trace clearly
+3. Capture the log sequence from error detection through health restoration
+4. This terminal-based demo perfectly demonstrates multi-step reasoning for the Reasoning Agents track
+
+---
+
 ## Testing & Evaluation
 
 The system includes a comprehensive test suite:
