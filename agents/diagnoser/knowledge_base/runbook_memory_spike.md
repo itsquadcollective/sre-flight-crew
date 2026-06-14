@@ -19,6 +19,8 @@ usage exceeds safe thresholds, the runtime begins failing memory allocations
 inside request handlers. Worker processes become unresponsive and the API
 returns HTTP 500 errors until the cache is cleared and memory is reclaimed.
 
+**Classified as:** memory_overflow
+
 ## Recovery Action
 
 clear_cache

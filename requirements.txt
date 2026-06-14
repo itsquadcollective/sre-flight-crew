@@ -10,6 +10,7 @@ aiohttp>=3.8.0
 azure-ai-projects>=1.0.0
 azure-identity>=1.15.0
 azure-ai-inference>=1.0.0b9
+openai>=1.30.0
 
 # --- Dashboard (frontend dev: served by FastAPI too) ---
 jinja2>=3.1.3
