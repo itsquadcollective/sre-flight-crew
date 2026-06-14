@@ -255,10 +255,12 @@ Step 5: Selected action: restart_service | Confidence: 87%
 ```
 sre-flight-crew/
 ├── README.md                              ← You are here
+├── main.py                                ← Pipeline orchestrator
 ├── requirements.txt                       ← All dependencies with versions
 ├── .env.example                           ← Template (no secrets)
-├── .gitignore                             ← .env, __pycache__, etc.
-├── main.py                                ← Pipeline orchestrator
+├── .gitignore                             ← Ignored files list
+├── HACKATHON_AUDIT.md                     ← Audit trail for hackathon review
+├── SUBMISSION_CHECKLIST.md                ← Internal submission status
 │
 ├── agents/                                ← The 4-agent system
 │   ├── watchman/
@@ -267,7 +269,8 @@ sre-flight-crew/
 │   ├── diagnoser/
 │   │   ├── diagnoser_agent.py
 │   │   ├── prompt_templates.py
-│   │   └── knowledge_base/                ← Runbooks (10+ scenarios)
+│   │   ├── setup_agent.py                 ← Azure AI Foundry agent setup
+│   │   └── knowledge_base/                ← Runbooks for diagnosis
 │   │       ├── runbook_db_crash.md
 │   │       ├── runbook_memory_spike.md
 │   │       └── sop_general.md
@@ -275,8 +278,7 @@ sre-flight-crew/
 │       ├── fixer_agent.py
 │       └── recovery_scripts/
 │           ├── restart_db.sh
-│           ├── clear_cache.sh
-│           └── restart_service.sh
+│           └── clear_cache.sh
 │
 ├── shared/                                ← Common utilities
 │   ├── config.py
@@ -287,27 +289,31 @@ sre-flight-crew/
 │   ├── mock_server.py
 │   └── failure_injector.py
 │
-├── dashboard/                             ← Monitoring dashboard
+├── dashboard/                             ← Monitoring dashboard (FastAPI)
 │   ├── app.py
 │   ├── templates/
-│   │   └── index.html
 │   └── static/
 │
-├── data/
-│   └── pattern_memory.json                ← Incident history (sample data)
+├── docs/                                  ← Technical documentation
+│   ├── PDR.md                             ← Project Design Review
+│   ├── SAD.md                             ← System Architecture Document
+│   ├── SETUP.md                           ← Unified setup instructions
+│   ├── DEV_SETUP.md                       ← Developer-specific setup
+│   ├── TESTING_GUIDE.md                   ← Test procedures
+│   └── log_samples/                       ← Sample logs for testing
 │
-├── tests/                                 ← Evaluation harness
+├── data/
+│   └── pattern_memory.json                ← Incident history (JSON)
+│
+├── tests/                                 ← Pytest test suite
 │   ├── test_watchman.py
 │   ├── test_diagnoser.py
 │   ├── test_fixer.py
-│   ├── test_event_bus.py
-│   └── test_simulator.py
+│   └── ...
 │
-└── docs/
-    ├── PDR.md                             ← Project Design Review
-    ├── SAD.md                             ← System Architecture Document
-    ├── SUBMISSION_GUIDE.md                ← Hackathon requirements checklist
-    └── TESTING_GUIDE.md                   ← Detailed test procedures
+├── logs/                                  ← Active log directory
+├── scratch/                               ← Internal utility scripts
+└── __queuestorage__/                      ← Local event persistence
 ```
 
 ---
