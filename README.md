@@ -1,22 +1,26 @@
-# 🛠️ Self-Healing SRE Flight Crew
-### Autonomous Multi-Agent Server Recovery System
+# � Self-Healing SRE Flight Crew
+### 🤖 Autonomous Multi-Agent Server Recovery System
 
 > An AI-powered system that detects server failures, reasons through the root cause using Azure AI Foundry, and automatically remediates the incident — in under 60 seconds.
 
 **Hackathon:** Agents League – AI Skills Fest 2026  
 **Track:** Reasoning Agents  
 **Submission Date:** June 14, 2026  
-**Demo Video:** [Link to your Loom/YouTube video]
 
 ---
 
-## ⭐ The Problem
+## 📣 Proof of Concept Notice
+This project is a high-fidelity **Proof of Concept (PoC)** designed to demonstrate the feasibility of autonomous SRE reasoning agents using Azure AI Foundry. While not intended as a production-grade MVP, it implements a verifiable end-to-end reasoning pipeline that maps directly to real-world infrastructure recovery workflows, providing a credible blueprint for future autonomous operations.
+
+---
+
+## 🛑 The Problem
 
 Server downtime is expensive and constant. A single outage costs businesses **$5,600 per minute** in lost revenue. Today's incident response is entirely manual: an on-call engineer wakes at 3 AM, SSH's into the server, manually reads messy log files, cross-references documentation, and executes recovery scripts. This process takes **15–45 minutes** on average. For startups and small teams without 24/7 on-call coverage, sites stay down for hours.
 
 Existing monitoring tools (Datadog, PagerDuty, CloudWatch) detect incidents and **alert humans**. They do not fix anything.
 
-## ⭐ Our Solution
+## 💡 Our Solution
 
 The **Self-Healing SRE Flight Crew** is a fully autonomous 4-agent backend system built on **Python** and **Azure AI Foundry** that detects, diagnoses, and remediates server failures **without human intervention**. Every diagnosis produces a transparent, auditable **reasoning trace** powered by a GPT-4.1 reasoning model—judges can see exactly why the system took the action it did.
 
@@ -26,9 +30,7 @@ The **Self-Healing SRE Flight Crew** is a fully autonomous 4-agent backend syste
 - ✅ Measurable impact (sub-60-second recovery)
 - ✅ Production-ready codebase (clean, tested, well-documented)
 
----
-
-## ⭐ How It Works: The 4-Agent Pipeline
+## ⚙️ How It Works: The 4-Agent Pipeline
 
 Each agent is a specialized reasoner in an async event-driven pipeline. The system demonstrates **multi-step reasoning** at every stage:
 
@@ -453,71 +455,15 @@ Every diagnosis includes a transparent `thinking_trace` showing:
 
 ---
 
-## Key Design Decisions
-
-| Decision | Rationale |
-|---|---|
-| **Raw Python orchestration (not AutoGen/LangChain)** | Fast iteration, judges see clean code, no framework magic |
-| **Simulated server** | Reliable demo (no cloud flakiness), no SSH edge cases, button-click triggers |
-| **gpt-4.1 model** | Explicit reasoning capability; matches "Reasoning Agents" track |
-| **JSON-only output** | Strict schema enforcement at API level; zero parsing failures |
-| **Local RAG fallback** | Runbooks in prompt context; zero dependency on Foundry availability |
-
-See [PDR.md](docs/PDR.md) for full design trade-offs.
+## ⚖️ License
+This project is licensed under the **Apache License 2.0** — see the [LICENSE](LICENSE) file for details. As an open-source initiative, we welcome contributions and community feedback.
 
 ---
 
-## Alignment with Hackathon Track
+## 📩 Contact & Contributions
+Have suggestions or want to contribute to the future of autonomous SRE? Support our mission to automate the on-call experience!
 
-**Track: Reasoning Agents**
-
-| Criterion | How We Satisfy It |
-|---|---|
-| **Multi-step reasoning** | Diagnoser produces chain-of-thought: log → pattern → root cause → action ✅ |
-| **Complex problem solving** | Server diagnostics is inherently multi-variable (error type × service state × runbook match) ✅ |
-| **Use of Microsoft Foundry** | All inference via `AIProjectClient` + gpt-4.1 with reasoning capability ✅ |
-| **Agent autonomy** | Zero human input from detection to recovery (configurable escalation only) ✅ |
-| **Practical application** | Server downtime costs real money; solution is deployable on Day 1 ✅ |
-
----
-
-## Next Steps (Post-Hackathon)
-
-- [ ] Migrate to Semantic Kernel or AutoGen for production orchestration
-- [ ] Deploy to Azure Container Instances or AKS for scale
-- [ ] Add persistent incident database (CosmosDB or PostgreSQL)
-- [ ] Integrate with real monitoring systems (Azure Monitor, Datadog)
-- [ ] Add multi-service orchestration (coordinated recovery across microservices)
-- [ ] Implement cost optimization (scale down during off-peak hours)
-
----
-
-## Team
-
-**Giant** — Lead Architect & Project Director  
-**Lead Cloud Architect & DevOps**  
-**AI Agent Dev 1** — Watchman + Diagnoser  
-**AI Agent Dev 2** — Fixer + Recovery Scripts  
-**AI Agent Dev 3** — Orchestration + Chronicler  
-**Frontend / UI Developer** — Dashboard  
-**Foundry IQ Context Manager** — Knowledge Base & Prompts  
-**Technical Writer & QA** — Documentation & Testing  
-
----
-
-## Submission & Demo
-
-**GitHub Repository:** [Link to your repo]  
-**Demo Video:** [Link to Loom/YouTube — 5 minutes showing full pipeline]  
-**Submission Deadline:** June 14, 2026 – 11:59 PM PT
-
-For submission checklist, see [SUBMISSION_GUIDE.md](docs/SUBMISSION_GUIDE.md).
-
----
-
-## License
-
-MIT License — See LICENSE file (or add if needed)
+📧 Reach us at: [pordan.ethan@gmail.com](mailto:pordan.ethan@gmail.com)
 
 ---
 
