@@ -256,66 +256,14 @@ Step 5: Selected action: restart_service | Confidence: 87%
 
 ```
 sre-flight-crew/
-├── README.md                              ← You are here
-├── main.py                                ← Pipeline orchestrator
-├── requirements.txt                       ← All dependencies with versions
-├── .env.example                           ← Template (no secrets)
-├── .gitignore                             ← Ignored files list
-├── HACKATHON_AUDIT.md                     ← Audit trail for hackathon review
-├── SUBMISSION_CHECKLIST.md                ← Internal submission status
-│
-├── agents/                                ← The 4-agent system
-│   ├── watchman/
-│   │   ├── watchman_agent.py
-│   │   └── log_parser.py
-│   ├── diagnoser/
-│   │   ├── diagnoser_agent.py
-│   │   ├── prompt_templates.py
-│   │   ├── setup_agent.py                 ← Azure AI Foundry agent setup
-│   │   └── knowledge_base/                ← Runbooks for diagnosis
-│   │       ├── runbook_db_crash.md
-│   │       ├── runbook_memory_spike.md
-│   │       └── sop_general.md
-│   └── fixer/
-│       ├── fixer_agent.py
-│       └── recovery_scripts/
-│           ├── restart_db.sh
-│           └── clear_cache.sh
-│
-├── shared/                                ← Common utilities
-│   ├── config.py
-│   ├── schemas.py
-│   └── event_bus.py
-│
-├── simulator/                             ← Simulated server environment
-│   ├── mock_server.py
-│   └── failure_injector.py
-│
-├── dashboard/                             ← Monitoring dashboard (FastAPI)
-│   ├── app.py
-│   ├── templates/
-│   └── static/
-│
-├── docs/                                  ← Technical documentation
-│   ├── PDR.md                             ← Project Design Review
-│   ├── SAD.md                             ← System Architecture Document
-│   ├── SETUP.md                           ← Unified setup instructions
-│   ├── DEV_SETUP.md                       ← Developer-specific setup
-│   ├── TESTING_GUIDE.md                   ← Test procedures
-│   └── log_samples/                       ← Sample logs for testing
-│
-├── data/
-│   └── pattern_memory.json                ← Incident history (JSON)
-│
-├── tests/                                 ← Pytest test suite
-│   ├── test_watchman.py
-│   ├── test_diagnoser.py
-│   ├── test_fixer.py
-│   └── ...
-│
-├── logs/                                  ← Active log directory
-├── scratch/                               ← Internal utility scripts
-└── __queuestorage__/                      ← Local event persistence
+├── agents/        ← Detection, Diagnosis, and Fixer agents
+├── dashboard/     ← Monitoring dashboard interface
+├── data/          ← Incident history and pattern memory
+├── docs/          ← Architecture, setup, and testing guides
+├── shared/        ← Common schemas, config, and event bus
+├── simulator/     ← Mock server and failure injection tools
+├── tests/         ← Full automation test suite
+└── main.py        ← System entry point and orchestrator
 ```
 
 ---
